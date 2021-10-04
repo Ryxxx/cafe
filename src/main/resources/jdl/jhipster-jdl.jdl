@@ -1,5 +1,5 @@
 entity AdresseUtilisateur {
-	userId Integer,
+	id Long,
     adresseLigne1 String,
     adresseLigne2 String,
     ville String,
@@ -9,14 +9,12 @@ entity AdresseUtilisateur {
 }
 
 entity Produit {
-	id Integer,
+	id Long,
     nom String,
     description TextBlob,
     sku String,
-    categorieId Integer,
-    inventaireId Integer,
     prix Double,
-    reductionId Integer,
+    reductionId Long,
     dateCreation LocalDate,
     dateModification LocalDate,
     dateSuppression LocalDate
@@ -24,7 +22,7 @@ entity Produit {
 }
 
 entity CategorieProduit {
-	id Integer,
+	id Long,
     nom String,
     description String,
     dateCreation LocalDate,
@@ -33,15 +31,15 @@ entity CategorieProduit {
 }
 
 entity StockProduit {
-	id Integer,
-    quantite Integer,
+	id Long,
+    quantite Long,
     dateCreation LocalDate,
     dateModification LocalDate,
     dateSuppression LocalDate
 }
 
 entity ReductionProduit {
-	id Integer,
+	id Long,
     nom String,
     description String,
     pourcentageReduction Double,
@@ -52,44 +50,37 @@ entity ReductionProduit {
 }
 
 entity Panier {
-	id Integer,
-    produitId Integer,
-    sessionPanierId Integer,
-    quantite Integer,
+	id Long,
+    quantite Long,
     dateCreation LocalDate,
     dateModification LocalDate
 }
 
 entity SessionPanier {
-	id Integer,
-    userId Integer,
+	id Long,
     total Double,
     dateCreation LocalDate,
     dateModification LocalDate
 }
 
 entity Commande {
-	id Integer,
-    detailsCommandeId Integer,
-    produitId Integer,
-    quantite Integer,
+	id Long,
+    detailsCommandeId Long,
+    quantite Long,
     dateCreation LocalDate,
     dateModification LocalDate
 }
 
 entity DetailsCommande {
-	id Integer,
-    userId Integer,
+	id Long,
     total Double,
-    paiementId Integer,
     dateCreation LocalDate,
     dateModification LocalDate
 }
 
 entity Paiement {
-	id Integer,
-    commandeId Integer,
-    quantite Integer,
+	id Long,
+    quantite Long,
     provider String,
     statut String,
     dateCreation LocalDate,

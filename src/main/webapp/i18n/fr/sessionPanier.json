@@ -1,0 +1,28 @@
+{
+  "cafeApp": {
+    "sessionPanier": {
+      "home": {
+        "title": "SessionPaniers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Session Panier",
+        "createOrEditLabel": "Créer ou éditer un Session Panier",
+        "notFound": "Aucun Session Panier trouvé"
+      },
+      "created": "Un nouveau Session Panier a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Session Panier avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Session Panier avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Session Panier {{ id }} ?"
+      },
+      "detail": {
+        "title": "Session Panier"
+      },
+      "id": "Id",
+      "total": "Total",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "userId": "User Id",
+      "panier": "Panier"
+    }
+  }
+}

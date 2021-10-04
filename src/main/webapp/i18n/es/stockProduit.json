@@ -1,0 +1,28 @@
+{
+  "cafeApp": {
+    "stockProduit": {
+      "home": {
+        "title": "Stock Produits",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Stock Produit",
+        "createOrEditLabel": "Crear o editar Stock Produit",
+        "notFound": "Ningún Stock Produits encontrado"
+      },
+      "created": "Un nuevo Stock Produit ha sido creado con el identificador {{ param }}",
+      "updated": "Un Stock Produit ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Stock Produit ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Stock Produit {{ id }}?"
+      },
+      "detail": {
+        "title": "Stock Produit"
+      },
+      "id": "Id",
+      "quantite": "Quantite",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "dateSuppression": "Date Suppression",
+      "produitId": "Produit Id"
+    }
+  }
+}

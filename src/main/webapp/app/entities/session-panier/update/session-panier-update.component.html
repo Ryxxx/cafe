@@ -1,0 +1,113 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-session-panier-heading"
+        data-cy="SessionPanierCreateUpdateHeading"
+        jhiTranslate="cafeApp.sessionPanier.home.createOrEditLabel"
+      >
+        Create or edit a Session Panier
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="cafeApp.sessionPanier.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.sessionPanier.total" for="field_total">Total</label>
+          <input type="number" class="form-control" name="total" id="field_total" data-cy="total" formControlName="total" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.sessionPanier.dateCreation" for="field_dateCreation">Date Creation</label>
+          <div class="input-group">
+            <input
+              id="field_dateCreation"
+              data-cy="dateCreation"
+              type="text"
+              class="form-control"
+              name="dateCreation"
+              ngbDatepicker
+              #dateCreationDp="ngbDatepicker"
+              formControlName="dateCreation"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateCreationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.sessionPanier.dateModification" for="field_dateModification"
+            >Date Modification</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateModification"
+              data-cy="dateModification"
+              type="text"
+              class="form-control"
+              name="dateModification"
+              ngbDatepicker
+              #dateModificationDp="ngbDatepicker"
+              formControlName="dateModification"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateModificationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.sessionPanier.userId" for="field_userId">User Id</label>
+          <select class="form-control" id="field_userId" data-cy="userId" name="userId" formControlName="userId">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('userId')!.value?.id ? editForm.get('userId')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.sessionPanier.panier" for="field_panier">Panier</label>
+          <select class="form-control" id="field_panier" data-cy="panier" name="panier" formControlName="panier">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="panierOption.id === editForm.get('panier')!.value?.id ? editForm.get('panier')!.value : panierOption"
+              *ngFor="let panierOption of paniersSharedCollection; trackBy: trackPanierById"
+            >
+              {{ panierOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

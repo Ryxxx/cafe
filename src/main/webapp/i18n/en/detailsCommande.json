@@ -1,0 +1,29 @@
+{
+  "cafeApp": {
+    "detailsCommande": {
+      "home": {
+        "title": "Details Commandes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Details Commande",
+        "createOrEditLabel": "Create or edit a Details Commande",
+        "notFound": "No Details Commandes found"
+      },
+      "created": "A new Details Commande is created with identifier {{ param }}",
+      "updated": "A Details Commande is updated with identifier {{ param }}",
+      "deleted": "A Details Commande is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Details Commande {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Commande"
+      },
+      "id": "Id",
+      "total": "Total",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "userId": "User Id",
+      "paimentId": "Paiment Id",
+      "commande": "Commande"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="reductionProduit">
+      <h2 data-cy="reductionProduitDetailsHeading"><span jhiTranslate="cafeApp.reductionProduit.detail.title">Reduction Produit</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.reductionProduit.id">Id</span></dt>
+        <dd>
+          <span>{{ reductionProduit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.nom">Nom</span></dt>
+        <dd>
+          <span>{{ reductionProduit.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.description">Description</span></dt>
+        <dd>
+          <span>{{ reductionProduit.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.pourcentageReduction">Pourcentage Reduction</span></dt>
+        <dd>
+          <span>{{ reductionProduit.pourcentageReduction }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.actif">Actif</span></dt>
+        <dd>
+          <span>{{ reductionProduit.actif }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ reductionProduit.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ reductionProduit.dateModification | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.reductionProduit.dateSuppression">Date Suppression</span></dt>
+        <dd>
+          <span>{{ reductionProduit.dateSuppression | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/reduction-produit', reductionProduit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

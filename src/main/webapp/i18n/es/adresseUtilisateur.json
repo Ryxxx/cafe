@@ -1,0 +1,30 @@
+{
+  "cafeApp": {
+    "adresseUtilisateur": {
+      "home": {
+        "title": "Adresse Utilisateurs",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Adresse Utilisateur",
+        "createOrEditLabel": "Crear o editar Adresse Utilisateur",
+        "notFound": "Ningún Adresse Utilisateurs encontrado"
+      },
+      "created": "Un nuevo Adresse Utilisateur ha sido creado con el identificador {{ param }}",
+      "updated": "Un Adresse Utilisateur ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Adresse Utilisateur ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Adresse Utilisateur {{ id }}?"
+      },
+      "detail": {
+        "title": "Adresse Utilisateur"
+      },
+      "id": "Id",
+      "adresseLigne1": "Adresse Ligne 1",
+      "adresseLigne2": "Adresse Ligne 2",
+      "ville": "Ville",
+      "codePostal": "Code Postal",
+      "pays": "Pays",
+      "telephone": "Telephone",
+      "userId": "User Id"
+    }
+  }
+}

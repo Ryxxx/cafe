@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="paiement">
+      <h2 data-cy="paiementDetailsHeading"><span jhiTranslate="cafeApp.paiement.detail.title">Paiement</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.paiement.id">Id</span></dt>
+        <dd>
+          <span>{{ paiement.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.paiement.quantite">Quantite</span></dt>
+        <dd>
+          <span>{{ paiement.quantite }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.paiement.provider">Provider</span></dt>
+        <dd>
+          <span>{{ paiement.provider }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.paiement.statut">Statut</span></dt>
+        <dd>
+          <span>{{ paiement.statut }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.paiement.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ paiement.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.paiement.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ paiement.dateModification | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/paiement', paiement.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

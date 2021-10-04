@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="detailsCommande">
+      <h2 data-cy="detailsCommandeDetailsHeading"><span jhiTranslate="cafeApp.detailsCommande.detail.title">Details Commande</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.detailsCommande.id">Id</span></dt>
+        <dd>
+          <span>{{ detailsCommande.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.detailsCommande.total">Total</span></dt>
+        <dd>
+          <span>{{ detailsCommande.total }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.detailsCommande.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ detailsCommande.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.detailsCommande.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ detailsCommande.dateModification | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.detailsCommande.userId">User Id</span></dt>
+        <dd>
+          <span>{{ detailsCommande.userId?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.detailsCommande.paimentId">Paiment Id</span></dt>
+        <dd>
+          <div *ngIf="detailsCommande.paimentId">
+            <a [routerLink]="['/paiement', detailsCommande.paimentId?.id, 'view']">{{ detailsCommande.paimentId?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.detailsCommande.commande">Commande</span></dt>
+        <dd>
+          <div *ngIf="detailsCommande.commande">
+            <a [routerLink]="['/commande', detailsCommande.commande?.id, 'view']">{{ detailsCommande.commande?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/details-commande', detailsCommande.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

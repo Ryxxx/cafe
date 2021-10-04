@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commande">
+      <h2 data-cy="commandeDetailsHeading"><span jhiTranslate="cafeApp.commande.detail.title">Commande</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.commande.id">Id</span></dt>
+        <dd>
+          <span>{{ commande.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.commande.detailsCommandeId">Details Commande Id</span></dt>
+        <dd>
+          <span>{{ commande.detailsCommandeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.commande.quantite">Quantite</span></dt>
+        <dd>
+          <span>{{ commande.quantite }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.commande.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ commande.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.commande.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ commande.dateModification | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.commande.produitId">Produit Id</span></dt>
+        <dd>
+          <div *ngIf="commande.produitId">
+            <a [routerLink]="['/produit', commande.produitId?.id, 'view']">{{ commande.produitId?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/commande', commande.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

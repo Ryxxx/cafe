@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="panier">
+      <h2 data-cy="panierDetailsHeading"><span jhiTranslate="cafeApp.panier.detail.title">Panier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.panier.id">Id</span></dt>
+        <dd>
+          <span>{{ panier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.panier.quantite">Quantite</span></dt>
+        <dd>
+          <span>{{ panier.quantite }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.panier.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ panier.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.panier.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ panier.dateModification | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.panier.produitId">Produit Id</span></dt>
+        <dd>
+          <div *ngIf="panier.produitId">
+            <a [routerLink]="['/produit', panier.produitId?.id, 'view']">{{ panier.produitId?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/panier', panier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "cafeApp": {
+    "panier": {
+      "home": {
+        "title": "Paniers",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Panier",
+        "createOrEditLabel": "Crear o editar Panier",
+        "notFound": "Ningún Paniers encontrado"
+      },
+      "created": "Un nuevo Panier ha sido creado con el identificador {{ param }}",
+      "updated": "Un Panier ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Panier ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Panier {{ id }}?"
+      },
+      "detail": {
+        "title": "Panier"
+      },
+      "id": "Id",
+      "quantite": "Quantite",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "produitId": "Produit Id",
+      "sessionPanierId": "Session Panier Id"
+    }
+  }
+}

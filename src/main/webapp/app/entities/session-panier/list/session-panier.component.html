@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="SessionPanierHeading">
+    <span jhiTranslate="cafeApp.sessionPanier.home.title">Session Paniers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cafeApp.sessionPanier.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-session-panier"
+        [routerLink]="['/session-panier/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cafeApp.sessionPanier.home.createLabel"> Create a new Session Panier </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sessionPaniers?.length === 0">
+    <span jhiTranslate="cafeApp.sessionPanier.home.notFound">No sessionPaniers found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sessionPaniers && sessionPaniers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="cafeApp.sessionPanier.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.sessionPanier.total">Total</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.sessionPanier.dateCreation">Date Creation</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.sessionPanier.dateModification">Date Modification</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.sessionPanier.userId">User Id</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.sessionPanier.panier">Panier</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sessionPanier of sessionPaniers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/session-panier', sessionPanier.id, 'view']">{{ sessionPanier.id }}</a>
+          </td>
+          <td>{{ sessionPanier.total }}</td>
+          <td>{{ sessionPanier.dateCreation | formatMediumDate }}</td>
+          <td>{{ sessionPanier.dateModification | formatMediumDate }}</td>
+          <td>
+            {{ sessionPanier.userId?.id }}
+          </td>
+          <td>
+            <div *ngIf="sessionPanier.panier">
+              <a [routerLink]="['/panier', sessionPanier.panier?.id, 'view']">{{ sessionPanier.panier?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/session-panier', sessionPanier.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/session-panier', sessionPanier.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(sessionPanier)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

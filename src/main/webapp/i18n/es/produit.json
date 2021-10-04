@@ -1,0 +1,34 @@
+{
+  "cafeApp": {
+    "produit": {
+      "home": {
+        "title": "Produits",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Produit",
+        "createOrEditLabel": "Crear o editar Produit",
+        "notFound": "Ningún Produits encontrado"
+      },
+      "created": "Un nuevo Produit ha sido creado con el identificador {{ param }}",
+      "updated": "Un Produit ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Produit ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Produit {{ id }}?"
+      },
+      "detail": {
+        "title": "Produit"
+      },
+      "id": "Id",
+      "nom": "Nom",
+      "description": "Description",
+      "sku": "Sku",
+      "prix": "Prix",
+      "reductionId": "Reduction Id",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "dateSuppression": "Date Suppression",
+      "categorieProduit": "Categorie Produit",
+      "stockProduit": "Stock Produit",
+      "reductionProduit": "Reduction Produit"
+    }
+  }
+}

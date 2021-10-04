@@ -1,0 +1,30 @@
+{
+  "cafeApp": {
+    "adresseUtilisateur": {
+      "home": {
+        "title": "Adresse Utilisateurs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Adresse Utilisateur",
+        "createOrEditLabel": "Create or edit a Adresse Utilisateur",
+        "notFound": "No Adresse Utilisateurs found"
+      },
+      "created": "A new Adresse Utilisateur is created with identifier {{ param }}",
+      "updated": "A Adresse Utilisateur is updated with identifier {{ param }}",
+      "deleted": "A Adresse Utilisateur is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Adresse Utilisateur {{ id }}?"
+      },
+      "detail": {
+        "title": "Adresse Utilisateur"
+      },
+      "id": "Id",
+      "adresseLigne1": "Adresse Ligne 1",
+      "adresseLigne2": "Adresse Ligne 2",
+      "ville": "Ville",
+      "codePostal": "Code Postal",
+      "pays": "Pays",
+      "telephone": "Telephone",
+      "userId": "User Id"
+    }
+  }
+}

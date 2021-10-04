@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="stockProduit">
+      <h2 data-cy="stockProduitDetailsHeading"><span jhiTranslate="cafeApp.stockProduit.detail.title">Stock Produit</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.stockProduit.id">Id</span></dt>
+        <dd>
+          <span>{{ stockProduit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.stockProduit.quantite">Quantite</span></dt>
+        <dd>
+          <span>{{ stockProduit.quantite }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.stockProduit.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ stockProduit.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.stockProduit.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ stockProduit.dateModification | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.stockProduit.dateSuppression">Date Suppression</span></dt>
+        <dd>
+          <span>{{ stockProduit.dateSuppression | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/stock-produit', stockProduit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

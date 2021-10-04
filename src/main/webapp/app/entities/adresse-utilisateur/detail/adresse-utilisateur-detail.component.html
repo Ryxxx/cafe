@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="adresseUtilisateur">
+      <h2 data-cy="adresseUtilisateurDetailsHeading">
+        <span jhiTranslate="cafeApp.adresseUtilisateur.detail.title">Adresse Utilisateur</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.id">Id</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.adresseLigne1">Adresse Ligne 1</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.adresseLigne1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.adresseLigne2">Adresse Ligne 2</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.adresseLigne2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.ville">Ville</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.ville }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.codePostal">Code Postal</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.codePostal }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.pays">Pays</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.pays }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.adresseUtilisateur.userId">User Id</span></dt>
+        <dd>
+          <span>{{ adresseUtilisateur.userId?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/adresse-utilisateur', adresseUtilisateur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

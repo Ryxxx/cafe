@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-reduction-produit-heading"
+        data-cy="ReductionProduitCreateUpdateHeading"
+        jhiTranslate="cafeApp.reductionProduit.home.createOrEditLabel"
+      >
+        Create or edit a Reduction Produit
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.pourcentageReduction" for="field_pourcentageReduction"
+            >Pourcentage Reduction</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="pourcentageReduction"
+            id="field_pourcentageReduction"
+            data-cy="pourcentageReduction"
+            formControlName="pourcentageReduction"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.actif" for="field_actif">Actif</label>
+          <input type="checkbox" class="form-check" name="actif" id="field_actif" data-cy="actif" formControlName="actif" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.dateCreation" for="field_dateCreation"
+            >Date Creation</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateCreation"
+              data-cy="dateCreation"
+              type="text"
+              class="form-control"
+              name="dateCreation"
+              ngbDatepicker
+              #dateCreationDp="ngbDatepicker"
+              formControlName="dateCreation"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateCreationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.dateModification" for="field_dateModification"
+            >Date Modification</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateModification"
+              data-cy="dateModification"
+              type="text"
+              class="form-control"
+              name="dateModification"
+              ngbDatepicker
+              #dateModificationDp="ngbDatepicker"
+              formControlName="dateModification"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateModificationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="cafeApp.reductionProduit.dateSuppression" for="field_dateSuppression"
+            >Date Suppression</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateSuppression"
+              data-cy="dateSuppression"
+              type="text"
+              class="form-control"
+              name="dateSuppression"
+              ngbDatepicker
+              #dateSuppressionDp="ngbDatepicker"
+              formControlName="dateSuppression"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateSuppressionDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

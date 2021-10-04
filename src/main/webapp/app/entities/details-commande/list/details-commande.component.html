@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="DetailsCommandeHeading">
+    <span jhiTranslate="cafeApp.detailsCommande.home.title">Details Commandes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cafeApp.detailsCommande.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-details-commande"
+        [routerLink]="['/details-commande/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cafeApp.detailsCommande.home.createLabel"> Create a new Details Commande </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="detailsCommandes?.length === 0">
+    <span jhiTranslate="cafeApp.detailsCommande.home.notFound">No detailsCommandes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="detailsCommandes && detailsCommandes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.total">Total</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.dateCreation">Date Creation</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.dateModification">Date Modification</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.userId">User Id</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.paimentId">Paiment Id</span></th>
+          <th scope="col"><span jhiTranslate="cafeApp.detailsCommande.commande">Commande</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detailsCommande of detailsCommandes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/details-commande', detailsCommande.id, 'view']">{{ detailsCommande.id }}</a>
+          </td>
+          <td>{{ detailsCommande.total }}</td>
+          <td>{{ detailsCommande.dateCreation | formatMediumDate }}</td>
+          <td>{{ detailsCommande.dateModification | formatMediumDate }}</td>
+          <td>
+            {{ detailsCommande.userId?.id }}
+          </td>
+          <td>
+            <div *ngIf="detailsCommande.paimentId">
+              <a [routerLink]="['/paiement', detailsCommande.paimentId?.id, 'view']">{{ detailsCommande.paimentId?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="detailsCommande.commande">
+              <a [routerLink]="['/commande', detailsCommande.commande?.id, 'view']">{{ detailsCommande.commande?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/details-commande', detailsCommande.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/details-commande', detailsCommande.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(detailsCommande)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

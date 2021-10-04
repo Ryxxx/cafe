@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="produit">
+      <h2 data-cy="produitDetailsHeading"><span jhiTranslate="cafeApp.produit.detail.title">Produit</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cafeApp.produit.id">Id</span></dt>
+        <dd>
+          <span>{{ produit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.nom">Nom</span></dt>
+        <dd>
+          <span>{{ produit.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.description">Description</span></dt>
+        <dd>
+          <span>{{ produit.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.sku">Sku</span></dt>
+        <dd>
+          <span>{{ produit.sku }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.prix">Prix</span></dt>
+        <dd>
+          <span>{{ produit.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.reductionId">Reduction Id</span></dt>
+        <dd>
+          <span>{{ produit.reductionId }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ produit.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ produit.dateModification | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.dateSuppression">Date Suppression</span></dt>
+        <dd>
+          <span>{{ produit.dateSuppression | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.categorieProduit">Categorie Produit</span></dt>
+        <dd>
+          <div *ngIf="produit.categorieProduit">
+            <a [routerLink]="['/categorie-produit', produit.categorieProduit?.id, 'view']">{{ produit.categorieProduit?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.stockProduit">Stock Produit</span></dt>
+        <dd>
+          <div *ngIf="produit.stockProduit">
+            <a [routerLink]="['/stock-produit', produit.stockProduit?.id, 'view']">{{ produit.stockProduit?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="cafeApp.produit.reductionProduit">Reduction Produit</span></dt>
+        <dd>
+          <div *ngIf="produit.reductionProduit">
+            <a [routerLink]="['/reduction-produit', produit.reductionProduit?.id, 'view']">{{ produit.reductionProduit?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/produit', produit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

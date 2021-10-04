@@ -1,0 +1,31 @@
+{
+  "cafeApp": {
+    "reductionProduit": {
+      "home": {
+        "title": "Reduction Produits",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Reduction Produit",
+        "createOrEditLabel": "Crear o editar Reduction Produit",
+        "notFound": "Ningún Reduction Produits encontrado"
+      },
+      "created": "Un nuevo Reduction Produit ha sido creado con el identificador {{ param }}",
+      "updated": "Un Reduction Produit ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Reduction Produit ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Reduction Produit {{ id }}?"
+      },
+      "detail": {
+        "title": "Reduction Produit"
+      },
+      "id": "Id",
+      "nom": "Nom",
+      "description": "Description",
+      "pourcentageReduction": "Pourcentage Reduction",
+      "actif": "Actif",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "dateSuppression": "Date Suppression",
+      "produitId": "Produit Id"
+    }
+  }
+}
