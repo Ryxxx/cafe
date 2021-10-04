@@ -1,0 +1,118 @@
+entity AdresseUtilisateur {
+	userId Integer,
+    adresseLigne1 String,
+    adresseLigne2 String,
+    ville String,
+    codePostal String,
+    pays String,
+    telephone String
+}
+
+entity Produit {
+	id Integer,
+    nom String,
+    description TextBlob,
+    sku String,
+    categorieId Integer,
+    inventaireId Integer,
+    prix Double,
+    reductionId Integer,
+    dateCreation LocalDate,
+    dateModification LocalDate,
+    dateSuppression LocalDate
+    
+}
+
+entity CategorieProduit {
+	id Integer,
+    nom String,
+    description String,
+    dateCreation LocalDate,
+    dateModification LocalDate,
+    dateSuppression LocalDate
+}
+
+entity StockProduit {
+	id Integer,
+    quantite Integer,
+    dateCreation LocalDate,
+    dateModification LocalDate,
+    dateSuppression LocalDate
+}
+
+entity ReductionProduit {
+	id Integer,
+    nom String,
+    description String,
+    pourcentageReduction Double,
+    actif Boolean,
+    dateCreation LocalDate,
+    dateModification LocalDate,
+    dateSuppression LocalDate
+}
+
+entity Panier {
+	id Integer,
+    produitId Integer,
+    sessionPanierId Integer,
+    quantite Integer,
+    dateCreation LocalDate,
+    dateModification LocalDate
+}
+
+entity SessionPanier {
+	id Integer,
+    userId Integer,
+    total Double,
+    dateCreation LocalDate,
+    dateModification LocalDate
+}
+
+entity Commande {
+	id Integer,
+    detailsCommandeId Integer,
+    produitId Integer,
+    quantite Integer,
+    dateCreation LocalDate,
+    dateModification LocalDate
+}
+
+entity DetailsCommande {
+	id Integer,
+    userId Integer,
+    total Double,
+    paiementId Integer,
+    dateCreation LocalDate,
+    dateModification LocalDate
+}
+
+entity Paiement {
+	id Integer,
+    commandeId Integer,
+    quantite Integer,
+    provider String,
+    statut String,
+    dateCreation LocalDate,
+    dateModification LocalDate
+}
+
+relationship OneToOne {
+    AdresseUtilisateur{userId} to User
+    SessionPanier{userId} to User
+    DetailsCommande{userId} to User
+    Panier{produitId} to Produit
+    Commande{produitId} to Produit
+    SessionPanier{userId} to User
+    DetailsCommande{paimentId} to Paiement
+}
+
+relationship OneToMany {
+	CategorieProduit{produitId} to Produit
+    StockProduit{produitId} to Produit
+    ReductionProduit{produitId} to Produit
+    Panier{sessionPanierId} to SessionPanier
+    Commande{detailsCommandeId} to DetailsCommande
+}
+
+// Set service options to all except few
+service all with serviceImpl
